@@ -17,6 +17,12 @@ import { Store } from '../Store';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { toast } from 'react-toastify';
 
+const backendUrl =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+axios.defaults.baseURL = backendUrl;
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'REFRESH_PRODUCT':

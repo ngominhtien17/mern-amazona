@@ -14,6 +14,12 @@ import { toast } from 'react-toastify';
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 const libs = ['places'];
 
+const backendUrl =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+axios.defaults.baseURL = backendUrl;
+
 export default function MapScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -44,7 +50,7 @@ export default function MapScreen() {
   };
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await axios('/api/keys/google', {
+      const { data } = await axios.get('/api/keys/google', {
         headers: { Authorization: `BEARER ${userInfo.token}` },
       });
       setGoogleApiKey(data.key);

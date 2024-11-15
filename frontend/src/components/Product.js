@@ -6,6 +6,12 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
 
+const backendUrl =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+axios.defaults.baseURL = backendUrl;
+
 function Product(props) {
   const { product } = props;
 

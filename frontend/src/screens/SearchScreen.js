@@ -13,6 +13,11 @@ import Button from 'react-bootstrap/Button';
 import Product from '../components/Product';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
+axios.defaults.baseURL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':

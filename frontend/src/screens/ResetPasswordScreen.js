@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -8,6 +7,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import axios from 'axios';
+
+axios.defaults.baseURL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
 
 export default function ResetPasswordScreen() {
   const navigate = useNavigate();
@@ -32,7 +37,7 @@ export default function ResetPasswordScreen() {
       return;
     }
     try {
-      await Axios.post('/api/users/reset-password', {
+      await axios.post('/api/users/reset-password', {
         password,
         token,
       });

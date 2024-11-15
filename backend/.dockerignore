@@ -1,0 +1,18 @@
+# Bỏ qua node_modules vì sẽ được cài đặt lại trong container
+node_modules
+
+# Bỏ qua các file cấu hình không cần thiết
+npm-debug.log
+yarn-error.log
+
+# Bỏ qua các file Git
+.git
+.gitignore
+
+# Bỏ qua các file môi trường
+.env
+.DS_Store
+
+# Bỏ qua các file xây dựng cục bộ
+build
+dist

@@ -7,6 +7,12 @@ import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import axios from 'axios';
 
+const backendUrl =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+axios.defaults.baseURL = backendUrl;
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_REQUEST':

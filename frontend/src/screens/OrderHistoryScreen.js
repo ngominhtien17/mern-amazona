@@ -8,6 +8,12 @@ import { Store } from '../Store';
 import { getError } from '../utils';
 import Button from 'react-bootstrap/esm/Button';
 
+const backendUrl =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:5000';
+axios.defaults.baseURL = backendUrl;
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
