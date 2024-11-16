@@ -10,6 +10,7 @@ COPY package*.json ./
 # Cài đặt các dependencies
 RUN npm install
 
+
 # Sao chép toàn bộ mã nguồn
 COPY . .
 

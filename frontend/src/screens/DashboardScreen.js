@@ -9,10 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-const backendUrl =
-  window.location.hostname === 'localhost'
-    ? 'http://localhost:5000'
-    : 'http://backend:5000';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost';
 axios.defaults.baseURL = backendUrl;
 
 const reducer = (state, action) => {

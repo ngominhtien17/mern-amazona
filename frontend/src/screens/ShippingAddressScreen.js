@@ -7,10 +7,7 @@ import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import axios from 'axios';
 
-const backendUrl =
-  window.location.hostname === 'localhost'
-    ? 'http://localhost:5000'
-    : 'http://backend:5000';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost';
 axios.defaults.baseURL = backendUrl;
 
 export default function ShippingAddressScreen() {

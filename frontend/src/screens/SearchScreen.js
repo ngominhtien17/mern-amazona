@@ -13,10 +13,8 @@ import Button from 'react-bootstrap/Button';
 import Product from '../components/Product';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
-axios.defaults.baseURL =
-  window.location.hostname === 'localhost'
-    ? 'http://localhost:5000'
-    : 'http://backend:5000';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost';
+axios.defaults.baseURL = backendUrl;
 
 const reducer = (state, action) => {
   switch (action.type) {
